@@ -8,7 +8,7 @@ def kmeansCluster(dataset, dis, k):
     while True:
         # Form k clusters by assigning all points to the closest centroid
         for data in dataset.data:
-            distances = list(map(lambda x : dis(x, data.val), c))
+            distances = [dis(x, data.val) for x in c]
             for i in range(0, len(distances)):
                 if (distances[i] < distances[data.cluster]):
                     data.cluster = i
