@@ -23,7 +23,7 @@ def cluster_test(dataset, method, arg1, arg2 = 0):
     time_end = time.time()
     print('    Time cost: ', time_end - time_start)
     print('    Purity: ', purity(dataset))
-    print('    F-score: ', fscore(dataset))
+    #print('    F-score: ', fscore(dataset))
 
 if __name__ == "__main__":
     dataset = Dataset()
@@ -32,4 +32,4 @@ if __name__ == "__main__":
     dataset3 = Dataset()
     dataset3.readFromFile(dataset_3_path, ['MFCCs_' + str(x).rjust(2) for x in list(range(1, 4))], 'Family')
     
-    cluster_test(dataset3, 'kmeans', 4)
+    cluster_test(dataset3, 'clique', 0.1, 5)
